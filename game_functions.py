@@ -7,8 +7,23 @@ def pick_value(poss_values):
 
 # function to be used in game_2: Higher or Lower
 def check_higher_lower(current_val, next_val, user_input):
-    pass
+    if current_val > next_val:
+        if user_input == 'l':
+            return True
+    else:
+        if user_input == 'h':
+            return True
+    return False
 
 # function to be used in game_3: Hangman
 def process_guess(letter, board, word):
-    pass
+    if letter in word:
+        for i, l in enumerate(word):
+            if l == letter:
+                board[i] = letter
+        print('Well done! \'' + letter + '\' is in the word')
+        return True
+    else:
+        print('Sorry, \'' + letter + '\' is not in the word')
+        return False
+        
